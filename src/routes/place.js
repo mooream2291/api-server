@@ -15,52 +15,41 @@ const router = express.Router();
 //RESTful routes
 
 router.get('/place', getPlace);
-router.get('/place/:id', getOnePlace);
+router.get('/place/:_id', getOnePlace);
 router.post('/place', createPlace);
-router.put('/place/:id', updatePlace);
-router.delete('/place/:id', deletePlace);
+router.put('/place/:_id', updatePlace);
+router.delete('/place/:_id', deletePlace);
 
 //RESTful route handlers
 
-function getPlace(req, res) {
-    const allPlaces = model.get()
-    .then(result => {
-        res.status(200).json(result);
-    })
+async function getPlace(req, res) {
+    const allPlaces = await model.get()
+    res.status(200).json(allPlaces);
 }
 
-function getOnePlace(req, res) {
+async function getOnePlace(req, res) {
     const id = req.params.id;
-        model.get(id)
-        .then(result => {
-            res.status(200).json(result);
-        })
+    await model.get(id)
+    res.status(200).json(id);
 }
 
-function createPlace(req, res) {
+async function createPlace(req, res) {
     console.log(req.body.name);
-    const obj = req.body;
-        model.create(obj)
-        .then(result => {
-            res.status(200).json(result)
-        })
+    const newObj = await model.create(req.body)
+    res.status(200).json(newObj)
 }
 
-function updatePlace(req, res) {
-    const updateId = req.params.id;
-        model.update(updateId, req.body)
-        .then(result => {
-            res.status(200).json(result)
-        })
-        //maybe see if we can do async await//
+async function updatePlace(req, res) {
+    const updateId = req.params._id;
+    const updatedId = await model.update(updateId, req.body)
+            res.status(200).json(updatedId)
+    //maybe see if we can do async await//
 }
 
-function deletePlace(req, res) {
-    const deleteId = req.params.id;
-        model.delete(deleteId)
-        .then(result => {
+async function deletePlace(req, res) {
+    const deleteId = req.params._id;
+    await model.delete(deleteId)
             res.status(200).send('deleting place')
-        })
- }
+}
 
 module.exports = router;
