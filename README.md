@@ -26,12 +26,16 @@ i.e.
 #### Tests
 
 - How do you run tests?
+
 no test currently exist
+
 - Any tests of note?
+
 no
+
 - Describe any tests that you did not complete, skipped, etc
 Did not complete any tests
 
 #### UML
 
-No current response, did not get to deploying on heroku
+https://lab-4-api-server.herokuapp.com
