@@ -19,7 +19,7 @@ const collectionModel = require('./models/collection.js');
 const logger = require('./middleware/logger');
 const notFoundHandler = require('./error-handlers/404');
 const serverError = require('./error-handlers/500');
-const placeRoute = require('./routes/place');
+const placeRoute = require('./routes/product');
 
 const PORT = process.env.PORT;
 const mongoOptions = {useNewUrlParser: true, useUnifiedTopology: true};

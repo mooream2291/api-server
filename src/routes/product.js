@@ -2,7 +2,7 @@
 
 const express = require('express');
 const Collection = require('../models/collection');
-const schema = require('../models/place');
+const schema = require('../models/product');
 
 const model = new Collection(schema);
 
@@ -22,7 +22,7 @@ router.delete('/place/:_id', deleteProduct);
 
 //RESTful route handlers
 
-async function getPlace(req, res) {
+async function getProduct(req, res) {
     const allPlaces = await model.get()
     res.status(200).json(allPlaces);
 }
@@ -49,7 +49,7 @@ async function updateProduct(req, res) {
 async function deleteProduct(req, res) {
     const deleteId = req.params._id;
     await model.delete(deleteId)
-            res.status(200).send('deleting place')
+            res.status(200).send('deleting product')
 }
 
 module.exports = router;
