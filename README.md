@@ -1,8 +1,6 @@
-# LAB - Class 4
+# LAB - API-server for virtual redux store
 
-## Project: API-server
-
-### Author: Ashley Moore/ worked with Tahmina Ringer
+### Author: Ashley Moore
 
 ### Links and Resources
 
@@ -22,20 +20,3 @@ i.e.
 - e.g. `npm start` (no test to run currently)
 
 #### How to use your library (where applicable)
-
-#### Tests
-
-- How do you run tests?
-
-no test currently exist
-
-- Any tests of note?
-
-no
-
-- Describe any tests that you did not complete, skipped, etc
-Did not complete any tests
-
-#### UML
-
-https://lab-4-api-server.herokuapp.com
